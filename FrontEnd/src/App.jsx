@@ -5,7 +5,9 @@ import prism from "prismjs";
 import Markdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github.css";
+
 import axios from "axios";
+
 import "./App.css";
 
 function App() {
@@ -22,7 +24,7 @@ function App() {
     setLoading(true);
     setError(false);
     try {
-      const response = await axios.post("http://localhost:4000/ai/get-Review", {
+      const response = await axios.post("http://localhost:3000/ai/get-Review", {
         code,
       });
 
@@ -33,6 +35,7 @@ function App() {
     }
     setLoading(false);
   }
+  
   return (
     <>
       <main>
@@ -63,7 +66,21 @@ function App() {
         </div>
         <div className="right">
         {loading ? (
-            <div className="loading-spinner"></div>
+        <div className="rocket-loader-container">
+<div class="rocket-loader">
+        <div class="rocket">
+          <div class="flame"></div>
+          <div class="smoke"></div>
+          
+        </div>
+           
+      </div>
+      <div class="code-review-text">Code Review...</div>
+        </div>
+        
+      
+      
+        
           ) : (
             <Markdown className={error ? "error-message" : ""}>{review}</Markdown>
           )}        </div>
