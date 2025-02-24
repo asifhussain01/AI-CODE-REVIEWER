@@ -20,12 +20,13 @@ function App() {
     prism.highlightAll();
   });
 
-  async function reviewcode() {
+  const reviewcode = async()=> {
     setLoading(true);
     setError(false);
     try {
-      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/ai/get-Review`, {
-        code,
+       const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/ai/get-Review`, {
+        code,   
+        headers: { "Content-Type": "application/json" }
       });
 
       setReview(response.data);
@@ -34,7 +35,7 @@ function App() {
       setError(true);
     }
     setLoading(false);
-  }
+  };
   
   return (
     <>
