@@ -19,6 +19,10 @@ function App() {
   useEffect(() => {
     prism.highlightAll();
   });
+  
+  const handleChange = (event) => {
+    setCode(event.target.value);
+  };
 
   const reviewcode = async()=> {
     setLoading(true);
@@ -36,6 +40,10 @@ function App() {
     }
     setLoading(false);
   };
+
+  useEffect(() => {
+    console.log("Updated Code:", code);
+  }, [code]);
   
   return (
     <>
