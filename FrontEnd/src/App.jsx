@@ -27,7 +27,7 @@ function App() {
     setLoading(true);
     setError(false);
     try {
-      const response = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/ai/get-Review`, {
+      const response = await axios.post(`${import.meta.env.API_BACKEND_URL}/ai/get-Review`, {
         code,   
         headers: { "Content-Type": "application/json" }
       });
