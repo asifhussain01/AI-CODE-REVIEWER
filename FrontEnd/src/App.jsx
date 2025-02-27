@@ -5,7 +5,6 @@ import prism from "prismjs";
 import Markdown from "react-markdown";
 import rehypeHighlight from "rehype-highlight";
 import "highlight.js/styles/github.css";
-
 import axios from "axios";
 
 import "./App.css";
